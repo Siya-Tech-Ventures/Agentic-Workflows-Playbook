@@ -1,0 +1,21 @@
+name: research_paper_poc
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - numpy
+  - pandas
+  - pytest
+  - pip:
+    - crewai==0.28.8
+    - langchain==0.1.10
+    - python-dotenv>=1.0.0
+    - ollama>=0.1.7
+    - langchain-community
+    - pypdf
+    - unstructured
+    - PyPDF2
+    - streamlit
+    - plotly

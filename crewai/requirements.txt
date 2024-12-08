@@ -1,0 +1,12 @@
+crewai==0.28.8
+langchain==0.1.10
+python-dotenv==1.0.0
+ollama>=0.1.7
+langchain-community
+pypdf
+unstructured==0.10.25
+PyPDF2
+streamlit
+plotly
+pyowm==3.3.0
+tools==0.1.9
