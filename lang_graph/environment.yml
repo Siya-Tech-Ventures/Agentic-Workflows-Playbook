@@ -1,0 +1,18 @@
+name: langgraph-ollama
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pip
+  - pip:
+    - langchain==0.2.0
+    - langgraph==0.2.54
+    - ollama==0.1.3
+    - langchain-community==0.2.0
+    - pydantic==2.6.1
+  - conda-forge::langchain
+  - conda-forge::pydantic
+  - conda-forge::langchain-community
+  - conda-forge::langgraph
+  - conda-forge::ollama
