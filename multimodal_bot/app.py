@@ -205,14 +205,54 @@ def main():
     st.set_page_config(page_title="Advanced Multimodal Chatbot", page_icon="🤖", layout="wide")
     st.title("Advanced Multimodal Chatbot 🤖")
     
-    # Check for API key
-    if not os.getenv("OPENAI_API_KEY"):
-        st.error("Please set your OpenAI API key in the .env file!")
-        st.stop()
+    # API Keys Management
+    with st.sidebar:
+        st.header("🔑 API Keys")
+        
+        # OpenAI API Key (Required)
+        openai_key = st.text_input("OpenAI API Key", 
+                                 type="password",
+                                 value=os.getenv("OPENAI_API_KEY", ""),
+                                 help="Required for chat functionality")
+        
+        # SERPAPI Key (Required)
+        serpapi_key = st.text_input("SERPAPI API Key",
+                                  type="password",
+                                  value=os.getenv("SERPAPI_API_KEY", ""),
+                                  help="Required for enhanced search functionality")
+        
+        # Set environment variables
+        if openai_key:
+            os.environ["OPENAI_API_KEY"] = openai_key
+        if serpapi_key:
+            os.environ["SERPAPI_API_KEY"] = serpapi_key
+        
+        # Show API key status
+        missing_keys = []
+        if not openai_key:
+            missing_keys.append("OpenAI API Key")
+        if not serpapi_key:
+            missing_keys.append("SERPAPI API Key")
+            
+        if missing_keys:
+            st.error(f"⚠️ Required API Keys missing: {', '.join(missing_keys)}")
+            st.stop()
+        else:
+            st.success("✅ All required API keys are set!")
+        
+        st.markdown("---")
     
     # Initialize bot in session state if not already done
-    if 'bot' not in st.session_state:
-        st.session_state.bot = MultiModalBot()
+    if ('bot' not in st.session_state or 
+        openai_key != st.session_state.get('last_openai_key', '') or
+        serpapi_key != st.session_state.get('last_serpapi_key', '')):
+        try:
+            st.session_state.bot = MultiModalBot()
+            st.session_state.last_openai_key = openai_key
+            st.session_state.last_serpapi_key = serpapi_key
+        except Exception as e:
+            st.error(f"Error initializing bot: {str(e)}")
+            st.stop()
         
     if 'chat_history' not in st.session_state:
         st.session_state.chat_history = []
