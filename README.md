@@ -9,48 +9,38 @@ This repository contains examples and demonstrations of popular agentic AI frame
 ## Featured Projects
 
 ### 1. Multimodal Chatbot
-- Advanced AI chatbot with multiple capabilities
-- Features:
+A powerful AI chatbot that combines image processing, natural language understanding, and multiple specialized tools.
+- Key Features:
   - 🖼️ Image processing and OCR
-  - 🔍 Multi-source information retrieval
-  - 📊 Real-time data analysis
-  - 💾 File operations and processing
-- [Try it now](./multimodal_bot/)
+  - 🔍 Multi-source information retrieval (Web, Wikipedia, ArXiv)
+  - 📊 Real-time data analysis (Stocks, Weather, News)
+  - 🧮 Mathematical computations via Wolfram Alpha
+  - 💾 File operations and data processing
+  - 🌐 Natural language interface for all operations
+- [Learn more](./multimodal_bot/)
 
-### 2. LangGraph Demo
-- Graph-based framework for LLM orchestration
-- Demonstrates:
-  - Stateful conversation workflows
-  - Integration with Ollama
-  - Complex reasoning chains
+### 2. LangGraph Ollama Demo
+A demonstration of using LangGraph with Ollama for creating conversational workflows.
+- Features:
+  - 🔄 Stateful conversation management
+  - 🤖 Integration with Ollama's Llama2 model
+  - 📝 Short story generation capabilities
+  - 🎯 Simple yet effective conversation loop implementation
 - [Learn more](./lang_graph/)
 
-## Additional Frameworks (Coming Soon)
-
-### CrewAI
-- Framework for orchestrating role-playing AI agents
-- Enables creation of specialized agent teams
-- Focuses on collaborative problem-solving
-
-### AutoGPT (agpt)
-- Autonomous GPT-4 powered agent
-- Goal-oriented task completion
-- Memory and internet-enabled capabilities
-
-### Project Astra
-- Experimental framework for autonomous agents
-- Focuses on task decomposition and execution
-- Supports complex planning capabilities
-
-### OpenAgent
-- Open-source framework for building AI agents
-- Modular architecture for customization
-- Supports multiple LLM backends
-
-### BabyAGI
-- Simple implementation of autonomous agents
-- Task creation and prioritization
-- Memory management and execution
+### 3. CrewAI Trip Planner
+An intelligent travel planning system using multiple specialized AI agents working together.
+- Features:
+  - 🌍 Smart city selection based on weather, season, and costs
+  - 🏛️ Local expertise and cultural insights
+  - 📅 Detailed itinerary creation with budget planning
+  - 🔍 Multi-source information gathering
+  - 🤖 Three specialized agents working in harmony:
+    - City Selection Expert
+    - Local Expert
+    - Travel Concierge
+  - 📊 Comprehensive travel plans with day-by-day schedules
+- [Learn more](./crewai/)
 
 ## Getting Started
 
@@ -58,6 +48,7 @@ This repository contains examples and demonstrations of popular agentic AI frame
 - Python 3.9 or higher
 - Conda (recommended) or virtualenv
 - Required API keys (varies by project)
+- Ollama with llama3.2 model (for LangGraph and CrewAI demos)
 
 ### Quick Start
 1. Clone the repository:
@@ -79,16 +70,17 @@ cp .env.example .env
 .
 ├── multimodal_bot/    # Advanced Multimodal Chatbot
 ├── lang_graph/        # LangGraph Ollama Demo
-├── docs/              # Documentation and guides
-└── common/            # Shared utilities and resources
+├── crewai/           # AI-Powered Trip Planning System
+└── docs/             # Documentation and guides
 ```
 
 ## Required API Keys
 
-Different projects may require different API keys. Common ones include:
-- OpenAI API Key (required for most projects)
-- SERPAPI Key (for enhanced search capabilities)
+Different projects may require different API keys:
+- OpenAI API Key (for Multimodal Chatbot)
+- SERPAPI Key (for enhanced search in Multimodal Chatbot)
 - Wolfram Alpha API Key (for mathematical computations)
+- Ollama setup with llama3.2 model (for LangGraph and CrewAI)
 
 ## Contributing
 
@@ -102,10 +94,4 @@ Please ensure your code follows our style guidelines and includes appropriate do
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Thanks to all contributors and framework creators
-- Special thanks to the open-source AI community
-- Built with support from various AI frameworks and tools
+This project is licensed under the MIT License - see the LICENSE file for details.
